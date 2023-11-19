@@ -46,7 +46,9 @@ setInterval(function() {
 function ende() {
   setText("p", punkte);
   open("https://it.gaertnet.de/url.php?s=" + punkte.toString() + "&n=" + name, "_blank");
-  setScreen("game_over");
+  setTimeout(function() {
+    close();
+  }, 500); // Hier wird das Fenster nach 0,5 Sekunden geschlossen.
 }
 
 onEvent("button1", "click", function() {
