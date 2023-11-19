@@ -7,7 +7,7 @@ function start() {
   setScreen("sreen_spiel");
   setTimeout(function() {
     ende();
-  }, 10000);
+  }, 20000);
 }
 
 onEvent("button2", "click", function() {
