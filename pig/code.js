@@ -48,7 +48,7 @@ function ende() {
   open("https://it.gaertnet.de/url.php?s=" + punkte.toString() + "&n=" + name, "_blank");
   setTimeout(function() {
     close();
-  }, 500); // Hier wird das Fenster nach 0,5 Sekunden geschlossen.
+  }, 500);
 }
 
 onEvent("button1", "click", function() {
