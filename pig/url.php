@@ -11,15 +11,15 @@ if ($con->connect_error) {
     die("Alles zu spät, Rüdiger ist tot." . $con->connect_error);
 }
 
-$sql_check = "SELECT Highscore FROM highscore WHERE Name = '$name'";
+$sql_check = "SELECT Highscore FROM highscorepig WHERE Name = '$name'";
 $result = $con->query($sql_check);
-
+if($name != "" && $score != 0){
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $existingHighscore = $row["Highscore"];
 
     if ($score > $existingHighscore) {
-        $sql_update = "UPDATE highscore SET Highscore = '$score' WHERE Name = '$name'";
+        $sql_update = "UPDATE highscorepig SET Highscore = '$score' WHERE Name = '$name'";
         if ($con->query($sql_update) === TRUE) {
             echo "success" . $name . $score;
         } else {
@@ -29,25 +29,16 @@ if ($result->num_rows > 0) {
         echo "success" . $name . $score; 
     }
 } else {
-    $sql_insert = "INSERT INTO highscore (Name, Highscore) VALUES ('$name', '$score')";
+    $sql_insert = "INSERT INTO highscorepig (Name, Highscore) VALUES ('$name', '$score')";
     if ($con->query($sql_insert) === TRUE) {
         echo "success" . $name . $score;
     } else {
         echo "error" . $con->error;
     }
 }
-
-    $sql_top_players = "SELECT Name, Highscore FROM highscore ORDER BY Highscore DESC LIMIT 5";
-    $result_top_players = $con->query($sql_top_players);
-    
-    $top_players = array();
-    while ($row = $result_top_players->fetch_assoc()) {
-        $top_players[] = $row;
-    }
-    
-    header('Content-Type: application/json');
-    echo json_encode($top_players);
-
-
 $con->close();
+}
+else{
+    echo "Fehler: Bitte alle Daten angeben";
+}
 ?>

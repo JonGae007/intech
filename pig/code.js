@@ -45,15 +45,16 @@ setInterval(function() {
 
 function ende() {
   setText("p", punkte);
-  open("https://it.gaertnet.de/url.php?s=" + punkte.toString() + "&n=" + name, "_blank");
-  setTimeout(function() {
-    close();
-  }, 500);
+  window.open(("https://it.gaertnet.de/pig/url.php?s=" + punkte.toString()) + "&n=" + name);
   setScreen("game_over");
 }
 
 onEvent("button1", "click", function() {
   setScreen("sreen_spiel");
   punkte = 0;
+  setText("label_punkte", punkte);
   start();
+});
+onEvent("back", "click", function( ) {
+  window.location.href = "https://it.gaertnet.de";
 });
