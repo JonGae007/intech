@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <script src="applab/applab-api.js"></script>
+    <meta charset="UTF-8">
+    <title>Highscore</title>
+    <style>
+        #bild-container {
+            position: absolute;
+            top: 0px;
+        }
+
+        #back {
+            position: absolute;
+            top: 0px;
+            left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="bild-container">
+        <img src="https://it.gaertnet.de/pig/bild.php" height="450" width="320">
+        <img src="https://cdn.icon-icons.com/icons2/3409/PNG/512/undo_icon_217147.png" height="30" width="30" id="back" onclick="openWebsite()">
+    </div>
+
+    <script>
+        function openWebsite() {
+            window.open('https://it.gaertnet.de/highscore', '_self');
+        }
+    </script>
+</body>
+</html>

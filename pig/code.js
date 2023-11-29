@@ -56,5 +56,11 @@ onEvent("button1", "click", function() {
   start();
 });
 onEvent("back", "click", function( ) {
-  window.location.href = "https://it.gaertnet.de";
+  window.open("https://it.gaertnet.de", '_self');
+});
+onEvent("hier", "click", function( ) {
+  window.open(("https://it.gaertnet.de/pig/url.php?s=" + punkte.toString()) + "&n=" + name);
+});
+onEvent("back1", "click", function( ) {
+  window.open("https://it.gaertnet.de", '_self');
 });
